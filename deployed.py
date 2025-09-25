@@ -1,4 +1,4 @@
-# mailmind_streamlit.py
+# mailmind_streamlit.py 
 import streamlit as st
 
 st.set_page_config(page_title="MailMind", layout="wide")
@@ -96,8 +96,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-demo_video_path = r"https://youtu.be/9b6GDqUeO_g"
-st.video(demo_video_path)
+st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")  # <-- replace with your actual YT URL
 st.markdown("---")
 
 # ---- MARKETING COPY ----
@@ -163,13 +162,4 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 st.markdown("---")
 
-# ---- STATS ----
-st.markdown(f"""
-<div class="key-metrics">
-    <div>10ms<br><small>Average Processing Time</small></div>
-    <div>99.9%<br><small>Accuracy Rate</small></div>
-    <div>24/7<br><small>Continuous Operation</small></div>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("---")
-
+# ---- STATS -
