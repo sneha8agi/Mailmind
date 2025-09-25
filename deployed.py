@@ -96,7 +96,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-demo_video_path = r"C:\Users\sneha.gupta\Downloads\email-action-orchestrator-main (3)\email-action-orchestrator-main\Deployed\Screen Recording 2025-08-13 135802.mp4"
+demo_video_path = r"https://youtu.be/9b6GDqUeO_g"
 st.video(demo_video_path)
 st.markdown("---")
 
@@ -172,3 +172,4 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 st.markdown("---")
+
