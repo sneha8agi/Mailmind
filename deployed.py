@@ -105,7 +105,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")  # <-- replace with your actual YT URL
+st.video("https://youtu.be/9b6GDqUeO_g")
 st.markdown("---")
 
 # ---- MARKETING COPY ----
@@ -170,3 +170,4 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 st.markdown("---")
+
