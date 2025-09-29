@@ -11,6 +11,15 @@ SECTION_BOX = "#001F44" # subtle section distinction
 
 st.markdown(f"""
 <style>
+/* Hide default Streamlit header & footer */
+header {{visibility: hidden;}}
+footer {{visibility: hidden;}}
+
+/* Add spacing so top title isn't cut off */
+.block-container {{
+    padding-top: 4rem !important;
+}}
+
 /* Full page background */
 body, section.main, .block-container {{
     background-color: {PRIMARY_BG} !important;
@@ -161,5 +170,3 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 st.markdown("---")
-
-# ---- STATS -
