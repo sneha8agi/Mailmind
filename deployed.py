@@ -1,5 +1,6 @@
 # mailmind_streamlit.py 
 import streamlit as st
+import webbrowser
 
 st.set_page_config(page_title="MailMind", layout="wide")
 
@@ -11,15 +12,6 @@ SECTION_BOX = "#001F44" # subtle section distinction
 
 st.markdown(f"""
 <style>
-/* Hide default Streamlit header & footer */
-header {{visibility: hidden;}}
-footer {{visibility: hidden;}}
-
-/* Add spacing so top title isn't cut off */
-.block-container {{
-    padding-top: 4rem !important;
-}}
-
 /* Full page background */
 body, section.main, .block-container {{
     background-color: {PRIMARY_BG} !important;
@@ -75,7 +67,7 @@ ul li {{
     display: flex;
     justify-content: center;
     gap: 80px;
-    font-size: 22px !important; /* metrics numbers */
+    font-size: 22px !important;
     margin: 30px 0;
     text-align: center;
 }}
@@ -88,6 +80,32 @@ ul li {{
 }}
 .key-metrics small {{
     font-size: 16px;
+}}
+
+/* Center alignment for email input and button */
+.stTextInput label {{
+    color: {ACCENT} !important; /* make label visible */
+    font-size: 18px !important;
+    text-align: center;
+    display: block;
+}}
+.stTextInput > div > div > input {{
+    text-align: center;
+    color: black !important;
+    background-color: white !important;
+    border-radius: 8px;
+    width: 350px !important;   /* reduced width */
+    margin: 0 auto !important; /* center horizontally */
+    display: block !important; /* ensure centering works */
+}}
+.stButton button {{
+    display: block;
+    margin: 15px auto 0 auto;
+    background-color: #4CAF50 !important;  /* contrasting green button */
+    color: white !important;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 20px;
 }}
 </style>
 """, unsafe_allow_html=True)
@@ -105,7 +123,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-st.video("https://youtu.be/9b6GDqUeO_g")
+st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")  # <-- replace with actual YT URL
 st.markdown("---")
 
 # ---- MARKETING COPY ----
@@ -130,7 +148,6 @@ st.markdown(f"""
 </ul>
 </div>
 """, unsafe_allow_html=True)
-
 st.markdown("---")
 
 # ---- HOW IT WORKS ----
@@ -158,7 +175,6 @@ st.markdown(f"""
 </ul>
 </div>
 """, unsafe_allow_html=True)
-
 st.markdown("---")
 
 # ---- FINAL CALL ----
@@ -171,3 +187,14 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 st.markdown("---")
 
+# ---- EMAIL CONNECT BOX ----
+st.markdown("## Get Connected")
+with st.container():
+    user_email = st.text_input("Enter your email address", placeholder="you@example.com", key="user_email")
+    if st.button("Get Connected"):
+        if user_email:
+            mailto_link = f"mailto:subhadeep.m@protivitiglobal.in?cc=sneha.gupta@protivitiglobal.in&subject=MailMind%20Waitlist&body=Hi,%0A%0AThis%20is%20{user_email},%20I%20would%20like%20to%20connect%20regarding%20MailMind.%0A%0AThanks!"
+            webbrowser.open(mailto_link)
+            st.success("Opening your email client...")
+        else:
+            st.error("Please enter your email address before connecting.")
