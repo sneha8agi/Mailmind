@@ -124,7 +124,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")
+st.video("https://youtu.be/9b6GDqUeO_g")
 st.markdown("---")
 
 # ---- MARKETING COPY ----
@@ -205,3 +205,4 @@ with st.container():
             st.success("Click the above link to open your email client.")
         else:
             st.error("Please enter your email address before connecting.")
+
