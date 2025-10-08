@@ -1,6 +1,7 @@
 # mailmind_streamlit.py 
 import streamlit as st
 import webbrowser
+import urllib.parse
 
 st.set_page_config(page_title="MailMind", layout="wide")
 
@@ -84,7 +85,7 @@ ul li {{
 
 /* Center alignment for email input and button */
 .stTextInput label {{
-    color: {ACCENT} !important; /* make label visible */
+    color: {ACCENT} !important; 
     font-size: 18px !important;
     text-align: center;
     display: block;
@@ -94,14 +95,14 @@ ul li {{
     color: black !important;
     background-color: white !important;
     border-radius: 8px;
-    width: 350px !important;   /* reduced width */
-    margin: 0 auto !important; /* center horizontally */
-    display: block !important; /* ensure centering works */
+    width: 350px !important;
+    margin: 0 auto !important;
+    display: block !important;
 }}
 .stButton button {{
     display: block;
     margin: 15px auto 0 auto;
-    background-color: #4CAF50 !important;  /* contrasting green button */
+    background-color: #4CAF50 !important;
     color: white !important;
     font-weight: bold;
     border-radius: 8px;
@@ -123,7 +124,7 @@ st.markdown("---")
 
 # ---- WATCH DEMO ----
 st.markdown("## Watch Live Demo")
-st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")  # <-- replace with actual YT URL
+st.video("https://www.youtube.com/watch?v=YOUR_VIDEO_ID")
 st.markdown("---")
 
 # ---- MARKETING COPY ----
@@ -193,8 +194,14 @@ with st.container():
     user_email = st.text_input("Enter your email address", placeholder="you@example.com", key="user_email")
     if st.button("Get Connected"):
         if user_email:
-            mailto_link = f"mailto:subhadeep.m@protivitiglobal.in?cc=sneha.gupta@protivitiglobal.in&subject=MailMind%20Waitlist&body=Hi,%0A%0AThis%20is%20{user_email},%20I%20would%20like%20to%20connect%20regarding%20MailMind.%0A%0AThanks!"
-            webbrowser.open(mailto_link)
-            st.success("Opening your email client...")
+            encoded_email = urllib.parse.quote(user_email)
+            mailto_link = (
+                f"mailto:subhadeep.m@protivitiglobal.in"
+                f"?cc=sneha.gupta@protivitiglobal.in"
+                f"&subject=MailMind%20Waitlist"
+                f"&body=Hi,%0A%0AThis%20is%20{encoded_email},%20I%20would%20like%20to%20connect%20regarding%20MailMind.%0A%0AThanks!"
+            )
+            st.markdown(f"[Click here to open your email client]({mailto_link})", unsafe_allow_html=True)
+            st.success("Click the above link to open your email client.")
         else:
             st.error("Please enter your email address before connecting.")
